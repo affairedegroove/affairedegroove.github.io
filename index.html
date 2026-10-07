@@ -67,6 +67,26 @@
       width: 40%;
       height: 7%;
     }
+    .indication-reseaux,
+.indication-email {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #f5e8c8;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  z-index: 5;
+}
+
+.indication-reseaux {
+  top: 76%;
+}
+
+.indication-email {
+  top: 86%;
+}
+
   </style>
 </head>
 
@@ -75,7 +95,9 @@
   <div class="page">
 
     <img src="Affaire%20de%20Groove.png" alt="Affaire de Groove">
-
+<div class="indication-reseaux">
+  Retrouvez-nous sur les réseaux — cliquez sur les logos
+</div>
     <!-- FACEBOOK -->
     <a
       class="lien facebook"
@@ -98,7 +120,9 @@
       target="_blank"
       aria-label="YouTube">
     </a>
-
+<div class="indication-email">
+  Cliquez sur l’adresse pour nous contacter
+</div>
     <!-- EMAIL -->
     <a
       class="lien email"
