@@ -397,7 +397,11 @@ textarea {
     </p>
 
     <!-- Le formulaire sera connecté à un service d'envoi à l'étape suivante. -->
-    <form id="reservation-form">
+   <form 
+     action="https://formsubmit.co/affairedegroove@outlook.fr" method="POST">
+     <input type="hidden" name="_subject" value="Nouvelle demande de réservation - Affaire de Groove">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="true">
       <div class="grille-champs">
 
         <div class="champ">
@@ -451,13 +455,12 @@ textarea {
         </div>
       </div>
 
-      <button class="bouton" type="button"
-              onclick="alert('Le formulaire visuel est créé. Nous allons maintenant connecter son envoi pour recevoir les demandes.')">
-        ✉ ENVOYER MA DEMANDE
-      </button>
+      <button class="bouton" type="submit">
+    ✉ ENVOYER MA DEMANDE
+</button>
     </form>
 
-    <p class="note">L'envoi des demandes sera activé lors de la prochaine étape.</p>
+   
   </div>
 
   <aside class="bloc">
