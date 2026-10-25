@@ -1,0 +1,483 @@
+reservation.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réservation | Affaire de Groove</title>
+
+<style>
+:root {
+  --or: #b8892d;
+  --or-clair: #f8f1df;
+  --texte: #292621;
+  --gris: #6b675f;
+  --bordure: #e4d7b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f6f2;
+  color: var(--texte);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.conteneur {
+  max-width: 1100px;
+  margin: 25px auto;
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+  box-shadow: 0 5px 22px #0000000b;
+}
+
+header {
+  text-align: center;
+  border-bottom: 2px solid var(--or);
+  padding-bottom: 18px;
+}
+
+.logo {
+  width: 115px;
+  max-height: 110px;
+  object-fit: contain;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(25px, 4vw, 38px);
+  margin: 8px 0 0;
+  color: var(--or);
+}
+
+.sous-titre {
+  color: var(--gris);
+  font-style: italic;
+  margin-top: 5px;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  margin: 25px 0 12px;
+  color: #79551b;
+}
+
+.presentation {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.presentation p {
+  margin-top: 0;
+}
+
+.photo {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #171717;
+}
+
+.formules {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.carte {
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.carte h3 {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 12px 6px;
+  background: var(--or-clair);
+}
+
+.carte p {
+  padding: 0 10px;
+  font-size: 13px;
+  flex: 1;
+}
+
+.prix {
+  display: block;
+  background: linear-gradient(90deg, #e8c36c, #f7e3a3, #e8c36c);
+  padding: 10px 4px;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: Georgia, serif;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+  background: var(--or-clair);
+  padding: 13px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.bas {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: start;
+}
+
+.bloc {
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.bloc h2 {
+  font-size: 21px;
+  margin-top: 0;
+  border-bottom: 1px solid var(--or);
+  padding-bottom: 8px;
+}
+
+.grille-champs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.champ.large {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #d8d4cc;
+  border-radius: 5px;
+  background: white;
+  color: var(--texte);
+  font: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #e8c36c;
+  border-color: var(--or);
+}
+
+textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.bouton {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #d6a43b, #f3d783, #d6a43b);
+  color: #292116;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.bouton:hover {
+  filter: brightness(0.96);
+}
+
+.condition {
+  border: 1px solid var(--bordure);
+  border-radius: 7px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+.condition h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.condition p, .bloc li {
+  font-size: 13px;
+}
+
+.pied {
+  text-align: center;
+  color: #79551b;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  margin-top: 24px;
+  padding-top: 15px;
+  border-top: 1px solid var(--bordure);
+}
+
+.note {
+  color: var(--gris);
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .conteneur {
+    margin: 0;
+    padding: 16px;
+    border-radius: 0;
+  }
+
+  .presentation, .bas {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    max-height: 240px;
+  }
+
+  .formules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .infos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .formules, .grille-champs {
+    grid-template-columns: 1fr;
+  }
+
+  .champ.large {
+    grid-column: auto;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="conteneur">
+
+<header>
+  <div id="logo"></div>
+  <h1>Affaire de Groove</h1>
+  <div class="sous-titre">
+    Un voyage musical au cœur de la soul des années 60
+  </div>
+</header>
+
+<section class="presentation">
+  <div>
+    <h2>Le duo</h2>
+    <p>
+      Affaire de Groove vous propose un voyage musical au cœur de la soul
+      des années 60. Un duo chant et danse, des costumes, une mise en scène
+      soignée et des grands standards qui font revivre l'âge d'or de la soul.
+    </p>
+    <p>
+      Un spectacle élégant et dynamique, idéal pour les mairies, cabarets,
+      entreprises, associations et événements privés.
+    </p>
+  </div>
+  <div id="photo"></div>
+</section>
+
+<h2>Nos formules</h2>
+
+<section class="formules">
+  <article class="carte">
+    <h3>Soul Sensation</h3>
+    <p><strong>1 h 30</strong><br>
+      Spectacle complet autour des grands standards de la soul.
+      Chant, danse, costumes et mise en scène.
+    </p>
+    <span class="prix">1 800 €</span>
+  </article>
+
+  <article class="carte">
+    <h3>Showcase</h3>
+    <p><strong>30 minutes</strong><br>
+      Une version courte et dynamique, idéale pour les événements,
+      cocktails et animations ponctuelles.
+    </p>
+    <span class="prix">800 €</span>
+  </article>
+
+  <article class="carte">
+    <h3>Cabaret &amp; Revue</h3>
+    <p><strong>2 passages de 15 min</strong><br>
+      Des interventions chantées et dansées intégrées à la programmation.
+    </p>
+    <span class="prix">800 €</span>
+  </article>
+
+  <article class="carte">
+    <h3>Cabaret &amp; Revue</h3>
+    <p><strong>3 passages de 15 min</strong><br>
+      Plusieurs tableaux pour rythmer votre soirée.
+    </p>
+    <span class="prix">1 100 €</span>
+  </article>
+</section>
+
+<section class="infos">
+  <div>🔊 <strong>Sonorisation et éclairage</strong><br>
+    À fournir par l'organisateur.
+  </div>
+  <div>🚗 <strong>Déplacement</strong><br>
+    Frais éventuels précisés sur le devis.
+  </div>
+  <div>📋 <strong>Tarifs</strong><br>
+    À confirmer selon les besoins et conditions.
+  </div>
+</section>
+
+<section class="bas">
+  <div class="bloc">
+    <h2>Demande de devis / réservation</h2>
+    <p class="note">
+      Merci de remplir le formulaire ci-dessous. Les champs marqués d'un *
+      sont obligatoires.
+    </p>
+
+    <!-- Le formulaire sera connecté à un service d'envoi à l'étape suivante. -->
+    <form id="reservation-form">
+      <div class="grille-champs">
+
+        <div class="champ">
+          <label for="organisme">Nom de l'organisme *</label>
+          <input id="organisme" name="organisme" required
+                 placeholder="Mairie, entreprise, association...">
+        </div>
+
+        <div class="champ">
+          <label for="responsable">Nom du responsable *</label>
+          <input id="responsable" name="responsable" required>
+        </div>
+
+        <div class="champ">
+          <label for="email">Adresse e-mail *</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+
+        <div class="champ">
+          <label for="telephone">Téléphone *</label>
+          <input id="telephone" name="telephone" type="tel" required>
+        </div>
+
+        <div class="champ">
+          <label for="formule">Formule souhaitée *</label>
+          <select id="formule" name="formule" required>
+            <option value="">Veuillez sélectionner une formule</option>
+            <option>Soul Sensation — 1 h 30 — 1 800 €</option>
+            <option>Showcase — 30 minutes — 800 €</option>
+            <option>Cabaret — 2 passages — 800 €</option>
+            <option>Cabaret — 3 passages — 1 100 €</option>
+            <option>Formule sur mesure — sur devis</option>
+          </select>
+        </div>
+
+        <div class="champ">
+          <label for="date">Date de l'événement *</label>
+          <input id="date" name="date" type="date" required>
+        </div>
+
+        <div class="champ large">
+          <label for="lieu">Lieu de l'événement *</label>
+          <input id="lieu" name="lieu" required
+                 placeholder="Ville et adresse">
+        </div>
+
+        <div class="champ large">
+          <label for="message">Message complémentaire</label>
+          <textarea id="message" name="message"
+                    placeholder="Précisions sur votre événement, vos besoins, vos questions..."></textarea>
+        </div>
+      </div>
+
+      <button class="bouton" type="button"
+              onclick="alert('Le formulaire visuel est créé. Nous allons maintenant connecter son envoi pour recevoir les demandes.')">
+        ✉ ENVOYER MA DEMANDE
+      </button>
+    </form>
+
+    <p class="note">L'envoi des demandes sera activé lors de la prochaine étape.</p>
+  </div>
+
+  <aside class="bloc">
+    <h2>Conditions de réservation et de paiement</h2>
+
+    <p>
+      La prestation fait l'objet d'un devis précisant le tarif, les conditions
+      techniques et les modalités de règlement.
+    </p>
+
+    <div class="condition">
+      <h3>Clients privés</h3>
+      <p>
+        Un acompte de 30 % peut être demandé à la réservation.
+        Le solde est réglé selon les conditions indiquées sur le devis.
+      </p>
+      <p><strong>Exemples d'acompte :</strong></p>
+      <ul>
+        <li>Soul Sensation : 540 €</li>
+        <li>Showcase : 240 €</li>
+        <li>Cabaret, 2 passages : 240 €</li>
+        <li>Cabaret, 3 passages : 330 €</li>
+      </ul>
+    </div>
+
+    <div class="condition">
+      <h3>Collectivités et organismes publics</h3>
+      <p>
+        Les modalités de règlement sont définies selon les règles applicables
+        et les conditions convenues avec l'organisateur.
+      </p>
+    </div>
+
+    <p class="note">
+      Les frais de déplacement sont précisés sur le devis. Les conditions
+      d'annulation figurent au devis ou au contrat signé.
+    </p>
+  </aside>
+</section>
+
+<div class="pied">
+  La soul, c'est plus qu'une musique…<br>
+  c'est une émotion !
+</div>
+
+</main>
+</body>
+</html>
