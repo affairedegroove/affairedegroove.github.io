@@ -391,49 +391,78 @@ textarea {
 <section class="bas">
   <div class="bloc">
     <h2>Demande de devis / réservation</h2>
+
     <p class="note">
-      Merci de remplir le formulaire ci-dessous. Les champs marqués d'un *
-      sont obligatoires.
+      Merci de remplir le formulaire ci-dessous.
+      Les champs marqués d'un * sont obligatoires.
     </p>
 
-    <!-- Le formulaire sera connecté à un service d'envoi à l'étape suivante. -->
-   <form 
-     action="https://formsubmit.co/affairedegroove@outlook.fr" method="POST">
-     <input type="hidden" name="_subject" value="Nouvelle demande de réservation - Affaire de Groove">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="true">
+    <form
+      action="https://formsubmit.co/affairedegroove@outlook.fr"
+      method="POST"
+    >
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nouvelle demande de réservation - Affaire de Groove"
+      >
+
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+
       <div class="grille-champs">
 
         <div class="champ">
           <label for="organisme">Nom de l'organisme *</label>
-          <input id="organisme" name="organisme" required
-                 placeholder="Mairie, entreprise, association...">
+          <input
+            id="organisme"
+            name="organisme"
+            type="text"
+            placeholder="Mairie, entreprise, association..."
+            required
+          >
         </div>
 
         <div class="champ">
           <label for="responsable">Nom du responsable *</label>
-          <input id="responsable" name="responsable" required>
+          <input
+            id="responsable"
+            name="responsable"
+            type="text"
+            required
+          >
         </div>
 
         <div class="champ">
           <label for="email">Adresse e-mail *</label>
-          <input id="email" name="email" type="email" required>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="vous@exemple.fr"
+            required
+          >
         </div>
 
         <div class="champ">
           <label for="telephone">Téléphone *</label>
-          <input id="telephone" name="telephone" type="tel" required>
+          <input
+            id="telephone"
+            name="telephone"
+            type="tel"
+            required
+          >
         </div>
 
         <div class="champ">
           <label for="formule">Formule souhaitée *</label>
           <select id="formule" name="formule" required>
-            <option value="">Veuillez sélectionner une formule</option>
-            <option>Soul Sensation — 1 h 30 — 1 800 €</option>
-            <option>Showcase — 30 minutes — 800 €</option>
-            <option>Cabaret — 2 passages — 800 €</option>
-            <option>Cabaret — 3 passages — 1 100 €</option>
-            <option>Formule sur mesure — sur devis</option>
+            <option value="">Choisir une formule</option>
+            <option value="Soul Sensation">Soul Sensation</option>
+            <option value="Showcase">Showcase</option>
+            <option value="Cabaret 2 passages">Cabaret, 2 passages</option>
+            <option value="Cabaret 3 passages">Cabaret, 3 passages</option>
+            <option value="Formule sur mesure">Formule sur mesure</option>
           </select>
         </div>
 
@@ -442,23 +471,50 @@ textarea {
           <input id="date" name="date" type="date" required>
         </div>
 
-        <div class="champ large">
+        <div class="champ">
           <label for="lieu">Lieu de l'événement *</label>
-          <input id="lieu" name="lieu" required
-                 placeholder="Ville et adresse">
+          <input
+            id="lieu"
+            name="lieu"
+            type="text"
+            placeholder="Ville ou adresse"
+            required
+          >
+        </div>
+
+        <div class="champ">
+          <label for="public">Nombre de personnes</label>
+          <input
+            id="public"
+            name="nombre_de_personnes"
+            type="number"
+            min="1"
+            placeholder="Nombre approximatif"
+          >
         </div>
 
         <div class="champ large">
           <label for="message">Message complémentaire</label>
-          <textarea id="message" name="message"
-                    placeholder="Précisions sur votre événement, vos besoins, vos questions..."></textarea>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Précisions sur votre événement, vos besoins, vos questions..."
+          ></textarea>
         </div>
+
       </div>
 
       <button class="bouton" type="submit">
-    ✉ ENVOYER MA DEMANDE
-</button>
+        ✉ ENVOYER MA DEMANDE
+      </button>
+
     </form>
+
+    <p class="note">
+      Votre demande sera envoyée par e-mail après activation du service.
+    </p>
+  </div>
+</section>
 
    
   </div>
