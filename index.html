@@ -169,22 +169,26 @@
 
 
 
-/* Harmonisation visuelle des logos */
-.cadre-reseaux .facebook img {
-    transform: scale(1.12);
+
+/* Même espace et mêmes dimensions pour les 4 logos */
+.cadre-reseaux .lien {
+    width: 38px !important;
+    height: 38px !important;
+    flex: 0 0 38px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
 }
 
-.cadre-reseaux .instagram img {
-    transform: scale(1.30);
+.cadre-reseaux .lien img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block;
+    transform: none !important;
 }
 
-.cadre-reseaux .youtube img {
-    transform: scale(1.40);
-}
-
-.cadre-reseaux .email img {
-    transform: scale(1.22);
-}
 
 
 
